@@ -1,0 +1,62 @@
+[
+{
+  "directory": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/build",
+  "command": "/usr/bin/c++ -DDFA_EXPORTS -I/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/include -fPIC -std=gnu++17 -o lib/CMakeFiles/DFA.dir/DFA.cpp.o -c /home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/DFA.cpp",
+  "file": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/DFA.cpp"
+},
+{
+  "directory": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/build",
+  "command": "/usr/bin/c++ -DDFA_EXPORTS -I/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/include -fPIC -std=gnu++17 -o lib/CMakeFiles/DFA.dir/1-AvailExprs.cpp.o -c /home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/1-AvailExprs.cpp",
+  "file": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/1-AvailExprs.cpp"
+},
+{
+  "directory": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/build",
+  "command": "/usr/bin/c++ -DDFA_EXPORTS -I/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/include -fPIC -std=gnu++17 -o lib/CMakeFiles/DFA.dir/2-Liveness.cpp.o -c /home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/2-Liveness.cpp",
+  "file": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/2-Liveness.cpp"
+},
+{
+  "directory": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/build",
+  "command": "/usr/bin/c++ -DDFA_EXPORTS -I/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/include -fPIC -std=gnu++17 -o lib/CMakeFiles/DFA.dir/3-SCCP.cpp.o -c /home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/3-SCCP.cpp",
+  "file": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/3-SCCP.cpp"
+},
+{
+  "directory": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/build",
+  "command": "/usr/bin/c++ -DDFA_EXPORTS -I/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/include -fPIC -std=gnu++17 -o lib/CMakeFiles/DFA.dir/4-LCM/1-AnticipatedExprs.cpp.o -c /home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/4-LCM/1-AnticipatedExprs.cpp",
+  "file": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/4-LCM/1-AnticipatedExprs.cpp"
+},
+{
+  "directory": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/build",
+  "command": "/usr/bin/c++ -DDFA_EXPORTS -I/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/include -fPIC -std=gnu++17 -o lib/CMakeFiles/DFA.dir/4-LCM/2-WBAvailExprs.cpp.o -c /home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/4-LCM/2-WBAvailExprs.cpp",
+  "file": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/4-LCM/2-WBAvailExprs.cpp"
+},
+{
+  "directory": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/build",
+  "command": "/usr/bin/c++ -DDFA_EXPORTS -I/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/include -fPIC -std=gnu++17 -o lib/CMakeFiles/DFA.dir/4-LCM/3-EarliestPlacement.cpp.o -c /home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/4-LCM/3-EarliestPlacement.cpp",
+  "file": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/4-LCM/3-EarliestPlacement.cpp"
+},
+{
+  "directory": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/build",
+  "command": "/usr/bin/c++ -DDFA_EXPORTS -I/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/include -fPIC -std=gnu++17 -o lib/CMakeFiles/DFA.dir/4-LCM/4-PostponableExprs.cpp.o -c /home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/4-LCM/4-PostponableExprs.cpp",
+  "file": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/4-LCM/4-PostponableExprs.cpp"
+},
+{
+  "directory": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/build",
+  "command": "/usr/bin/c++ -DDFA_EXPORTS -I/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/include -fPIC -std=gnu++17 -o lib/CMakeFiles/DFA.dir/4-LCM/5-LatestPlacement.cpp.o -c /home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/4-LCM/5-LatestPlacement.cpp",
+  "file": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/4-LCM/5-LatestPlacement.cpp"
+},
+{
+  "directory": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/build",
+  "command": "/usr/bin/c++ -DDFA_EXPORTS -I/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/include -fPIC -std=gnu++17 -o lib/CMakeFiles/DFA.dir/4-LCM/6-UsedExprs.cpp.o -c /home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/4-LCM/6-UsedExprs.cpp",
+  "file": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/4-LCM/6-UsedExprs.cpp"
+},
+{
+  "directory": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/build",
+  "command": "/usr/bin/c++ -DDFA_EXPORTS -I/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/include -fPIC -std=gnu++17 -o lib/CMakeFiles/DFA.dir/DFA/Domain/Expression.cpp.o -c /home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/DFA/Domain/Expression.cpp",
+  "file": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/DFA/Domain/Expression.cpp"
+},
+{
+  "directory": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/build",
+  "command": "/usr/bin/c++ -DDFA_EXPORTS -I/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/include -fPIC -std=gnu++17 -o lib/CMakeFiles/DFA.dir/DFA/Domain/Variable.cpp.o -c /home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/DFA/Domain/Variable.cpp",
+  "file": "/home/blame/Workspace/MICS6000R_Assignment/CSCD70/Assignment2-Dataflow_Analysis/lib/DFA/Domain/Variable.cpp"
+}
+]
