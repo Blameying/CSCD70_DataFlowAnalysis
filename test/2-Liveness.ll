@@ -1,5 +1,5 @@
 ; RUN: opt -S -load-pass-plugin=%dylibdir/libDFA.so \
-; RUN:     -p=liveness %s -o %basename_t 2>%basename_t.log
+; RUN:     -passes=liveness %s -o %basename_t 2>%basename_t.log
 ; @todo(CSCD70): FileCheck --match-full-lines %s --input-file=%basename_t.log
 
 ; int sum(int a, int b) {

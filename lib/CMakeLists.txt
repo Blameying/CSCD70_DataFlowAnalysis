@@ -11,5 +11,3 @@ add_library(DFA SHARED DFA.cpp
                        DFA/Domain/Expression.cpp
                        DFA/Domain/Variable.cpp)
 
-target_link_libraries(DFA
-  "$<$<PLATFORM_ID:Darwin>:-undefined dynamic_lookup>")

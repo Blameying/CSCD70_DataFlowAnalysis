@@ -1,7 +1,10 @@
 #pragma once // NOLINT(llvm-header-guard)
 
+#include <iostream>
+#include <iterator>
 #include <llvm/IR/Function.h>
 #include <llvm/IR/InstIterator.h>
+#include <llvm/IR/Instruction.h>
 #include <llvm/IR/PassManager.h>
 #include <llvm/Support/raw_ostream.h>
 
@@ -72,6 +75,9 @@ protected:
     MeetOperands_t MeetOperands = getMeetOperands(BB);
 
     /// @todo(CSCD70) Please complete this method.
+    if (MeetOperands.begin() == MeetOperands.end()) {
+      return bc();
+    }
 
     return meet(MeetOperands);
   }
@@ -90,6 +96,11 @@ protected:
     MeetOperands_t Operands;
 
     /// @todo(CSCD70) Please complete this method.
+    for (const auto &B : getMeetBBConstRange(BB)) {
+      const llvm::Instruction &Inst = *std::prev(getInstConstRange(*B).end());
+      /* to get the first one */
+      Operands.push_back(InstDomainValMap.at(&Inst));
+    }
 
     return Operands;
   }
@@ -97,8 +108,13 @@ protected:
   DomainVal_t meet(const MeetOperands_t &MeetOperands) const {
 
     /// @todo(CSCD70) Please complete this method.
+    TMeetOp MeetOp;
+    DomainVal_t meetDV = MeetOp.top(DomainVector.size());
+    for (auto &DV : MeetOperands) {
+      meetDV = MeetOp(meetDV, DV);
+    }
 
-    return DomainVal_t(DomainIdMap.size());
+    return meetDV;
   }
 
   /// @}
@@ -123,7 +139,14 @@ protected:
     bool Changed = false;
 
     /// @todo(CSCD70) Please complete this method.
-
+    DomainVal_t InputBB;
+    for (const auto &BB : getBBConstRange(F)) {
+      InputBB = getBoundaryVal(BB);
+      for (const auto &Inst : getInstConstRange(BB)) {
+        Changed |= transferFunc(Inst, InputBB, InstDomainValMap.at(&Inst));
+        InputBB = InstDomainValMap.at(&Inst);
+      }
+    }
     return Changed;
   }
 
@@ -140,10 +163,24 @@ protected:
   virtual bool transferFunc(const llvm::Instruction &Inst,
                             const DomainVal_t &IDV, DomainVal_t &ODV) = 0;
 
+  virtual void initializeDomainFromInst(const llvm::Instruction &Inst) = 0;
+
   virtual AnalysisResult_t run(llvm::Function &F,
                                llvm::FunctionAnalysisManager &FAM) {
 
     /// @todo(CSCD70) Please complete this method.
+    for (const auto &Inst : llvm::instructions(F)) {
+      initializeDomainFromInst(Inst);
+    }
+    TMeetOp MeetOp;
+    for (const auto &Inst : llvm::instructions(F)) {
+      InstDomainValMap.emplace(&Inst, MeetOp.top(DomainVector.size()));
+    }
+
+    while (traverseCFG(F)) {
+    }
+
+    printInstDomainValMap(F);
 
     return std::make_tuple(DomainIdMap, DomainVector, BVs, InstDomainValMap);
   }

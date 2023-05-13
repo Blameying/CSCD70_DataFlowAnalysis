@@ -1,5 +1,7 @@
 #pragma once // NOLINT(llvm-header-guard)
 
+#include <cmath>
+#include <cstring>
 #include <llvm/IR/InstVisitor.h>
 #include <llvm/IR/Instruction.h>
 #include <llvm/IR/Instructions.h>
@@ -24,6 +26,19 @@ struct Expression final : DomainBase<Expression> {
   bool operator==(const Expression &Other) const final {
 
     /// @todo(CSCD70) Please complete this method.
+
+    if (this == &Other) {
+      return true;
+    }
+
+    if (Opcode == Other.Opcode) {
+      bool result = (LHS == Other.LHS && RHS == Other.RHS);
+      if (llvm::Instruction::isCommutative(Opcode)) {
+        result |= (LHS == Other.RHS && RHS == Other.RHS);
+      }
+      return result;
+    }
+
     return false;
   }
 
@@ -31,12 +46,19 @@ struct Expression final : DomainBase<Expression> {
 
     /// @todo(CSCD70) Please complete this method.
 
-    return false;
+    return LHS == Val || RHS == Val;
   }
   Expression replaceValueWith(const llvm::Value *const SrcVal,
                               const llvm::Value *const DstVal) const final {
 
     /// @todo(CSCD70) Please complete this method.
+    // if (LHS == SrcVal) {
+    //   LHS = DstVal;
+    // }
+
+    // if (RHS == SrcVal) {
+    //   RHS = SrcVal;
+    // }
 
     return *this;
   }
@@ -65,6 +87,7 @@ template <> struct hash<::dfa::Expression> {
     size_t HashVal = 0;
 
     /// @todo(CSCD70) Please complete this method.
+    hashCombine(&HashVal, Expr.Opcode, Expr.LHS, Expr.RHS);
 
     return HashVal;
   }

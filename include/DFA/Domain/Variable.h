@@ -21,7 +21,7 @@ struct Variable final : DomainBase<Variable> {
 
     /// @todo(CSCD70) Please complete this method.
 
-    return false;
+    return this->Var == Val;
   }
   Variable replaceValueWith(const llvm::Value *const SrcVal,
                             const llvm::Value *const DstVal) const final {
