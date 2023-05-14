@@ -4,6 +4,7 @@
 #include <llvm/IR/BasicBlock.h>
 #include <llvm/IR/CFG.h>
 #include <llvm/IR/Instruction.h>
+#include <llvm/Support/raw_ostream.h>
 
 /// @todo(CSCD70) Please instantiate for the backward pass, similar to the
 ///               forward one.
@@ -49,14 +50,14 @@ protected:
     using llvm::outs;
     const llvm::BasicBlock *const ParentBB = Inst.getParent();
 
+    outs() << Inst << "\n";
+    LOG_ANALYSIS_INFO << "\t"
+                      << stringifyDomainWithMask(InstDomainValMap.at(&Inst));
     if (&Inst == &(ParentBB->back())) {
       errs() << "\n";
       LOG_ANALYSIS_INFO << "\t"
                         << stringifyDomainWithMask(getBoundaryVal(*ParentBB));
-    } // if (&Inst == &(*ParentBB->begin()))
-    outs() << Inst << "\n";
-    LOG_ANALYSIS_INFO << "\t"
-                      << stringifyDomainWithMask(InstDomainValMap.at(&Inst));
+    } // if (&Inst == &(*ParentBB->back()))
   }
 
   MeetBBConstRange_t

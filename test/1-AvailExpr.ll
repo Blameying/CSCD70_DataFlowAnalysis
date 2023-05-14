@@ -1,6 +1,6 @@
 ; RUN: opt -S -load-pass-plugin=%dylibdir/libDFA.so \
 ; RUN:     -passes=avail-expr %s -o %basename_t 2>%basename_t.log
-; @todo(CSCD70): FileCheck --match-full-lines %s --input-file=%basename_t.log
+; RUN: FileCheck --match-full-lines %s --input-file=%basename_t.log
 
 ; int main(int argc, char *argv[]) {
 ;   int a, b, c, d, e, f;
@@ -20,6 +20,29 @@
 ;   return 0;
 ; }
 ; @todo(CSCD70) Please complete the CHECK directives.
+;
+; CHECK: [AvailExprs] 	{}
+; CHECK: [AvailExprs] 	{[add %0, 50], }
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], }
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], }
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], }
+; CHECK-EMPTY: 
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], }
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], [sub %3, 50], }
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], [sub %3, 50], [mul 96, %3], }
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], [sub %3, 50], [mul 96, %3], }
+; CHECK-EMPTY: 
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], }
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], [add %3, 50], }
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], [mul 96, %3], [add %3, 50], }
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], [mul 96, %3], [add %3, 50], }
+; CHECK-EMPTY: 
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], [mul 96, %3], }
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], [mul 96, %3], }
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], [mul 96, %3], [sub 50, 96], }
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], [mul 96, %3], [sub 50, 96], [add %13, %.0], }
+; CHECK: [AvailExprs] 	{[add %0, 50], [add %3, 96], [mul 96, %3], [sub 50, 96], [add %13, %.0], }
+
 define i32 @main(i32 noundef %0, ptr noundef %1) {
 ; [AvailExpr]     {}
   %3 = add nsw i32 %0, 50
