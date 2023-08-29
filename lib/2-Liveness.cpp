@@ -38,7 +38,6 @@ bool Liveness::transferFunc(const Instruction &Inst, const DomainVal_t &IDV,
   const Instruction *last_inst = parent->getTerminator();
   if (last_inst) {
     unsigned number_of_successors = last_inst->getNumSuccessors();
-    llvm::outs() << "nums: " << number_of_successors << "\n";
     for (unsigned is = 0; is < number_of_successors; is++) {
       const llvm::BasicBlock *successor = last_inst->getSuccessor(is);
       // Process the successor block
