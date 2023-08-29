@@ -10,21 +10,21 @@
 ;   return res;
 ; }
 ; @todo(CSCD70) Please complete the CHECK directives.
-; CHECK: [Liveness] 	{i32 %6, i32 %0, i32 %8, i32 %1, }
+; CHECK: [Liveness] 	{i32 %0, i32 %1, }
 ; CHECK-EMPTY: 
 ; CHECK: [Liveness] 	{i32 %6, i32 %0, i32 %8, i32 %1, }
 ; CHECK: [Liveness] 	{i32 %6, i32 %0, i32 %8, i32 %1, }
 ; CHECK: [Liveness] 	{i32 %0, i32 %8, i32 %1, i32 %.01, }
-; CHECK: [Liveness] 	{i32 %0, i32 %.0, i32 %1, i32 %.01, }
-; CHECK: [Liveness] 	{i32 %0, i32 %.0, i32 %1, i1 %4, i32 %.01, }
+; CHECK: [Liveness] 	{i32 %.0, i32 %1, i32 %.01, }
+; CHECK: [Liveness] 	{i32 %.0, i32 %1, i1 %4, i32 %.01, }
 ; CHECK-EMPTY: 
-; CHECK: [Liveness] 	{i32 %0, i32 %.0, i32 %1, i32 %.01, }
-; CHECK: [Liveness] 	{i32 %0, i32 %.0, i32 %1, i32 %.01, }
-; CHECK: [Liveness] 	{i32 %6, i32 %0, i32 %.0, i32 %1, }
+; CHECK: [Liveness] 	{i32 %.0, i32 %1, i32 %.01, }
+; CHECK: [Liveness] 	{i32 %.0, i32 %1, i32 %.01, }
+; CHECK: [Liveness] 	{i32 %6, i32 %.0, i32 %1, }
 ; CHECK-EMPTY: 
-; CHECK: [Liveness] 	{i32 %6, i32 %0, i32 %.0, i32 %1, }
-; CHECK: [Liveness] 	{i32 %6, i32 %0, i32 %.0, i32 %1, }
-; CHECK: [Liveness] 	{i32 %6, i32 %0, i32 %8, i32 %1, }
+; CHECK: [Liveness] 	{i32 %6, i32 %.0, i32 %1, }
+; CHECK: [Liveness] 	{i32 %6, i32 %.0, i32 %1, }
+; CHECK: [Liveness] 	{i32 %6, i32 %8, i32 %1, }
 ; CHECK-EMPTY: 
 ; CHECK: [Liveness] 	{i32 %6, i32 %0, i32 %8, i32 %1, }
 ; CHECK: [Liveness] 	{i32 %.01, }

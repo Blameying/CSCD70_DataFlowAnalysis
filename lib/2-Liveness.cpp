@@ -4,7 +4,10 @@
 #include <cstddef>
 #include <iostream>
 #include <llvm/IR/Argument.h>
+#include <llvm/IR/Instruction.h>
+#include <llvm/IR/Instructions.h>
 #include <llvm/Support/Casting.h>
+#include <llvm/Support/raw_ostream.h>
 #include <utility>
 /// @todo(CSCD70) Please complete this file.
 
@@ -30,6 +33,37 @@ bool Liveness::transferFunc(const Instruction &Inst, const DomainVal_t &IDV,
 
   /// @todo(CSCD70) Please complete this method.
   DomainVal_t TmpDV = IDV;
+
+  const llvm::BasicBlock *parent = Inst.getParent();
+  const Instruction *last_inst = parent->getTerminator();
+  if (last_inst) {
+    unsigned number_of_successors = last_inst->getNumSuccessors();
+    llvm::outs() << "nums: " << number_of_successors << "\n";
+    for (unsigned is = 0; is < number_of_successors; is++) {
+      const llvm::BasicBlock *successor = last_inst->getSuccessor(is);
+      // Process the successor block
+      if (successor) {
+        for (const Instruction &inst : *successor) {
+          if (inst.getOpcode() == Instruction::PHI) {
+            const llvm::PHINode *node = dyn_cast<llvm::PHINode>(&inst);
+            unsigned numbers = node->getNumIncomingValues();
+            for (unsigned i = 0; i < numbers; i++) {
+              auto label = node->getIncomingBlock(i);
+              if (label != parent) {
+                auto value = node->getIncomingValue(i);
+                auto id = DomainIdMap.find(value);
+                if (id != DomainIdMap.end()) {
+                  TmpDV[id->second].Value = false;
+                }
+              }
+            }
+          } else {
+            break;
+          }
+        }
+      }
+    }
+  }
 
   const Value *ValueInst = dyn_cast<llvm::Value>(&Inst);
 
